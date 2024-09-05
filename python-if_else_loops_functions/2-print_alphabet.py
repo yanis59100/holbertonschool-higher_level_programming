@@ -1,3 +1,4 @@
 import string
-lowercase_alphabet = string.ascii_lowercase
-print(lowercase_alphabet, end="")
+alphabet = 97
+for alphabet in string.ascii_lowercase:
+    print(alphabet, end="")
