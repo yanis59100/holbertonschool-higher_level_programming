@@ -1,5 +1,3 @@
 #!/usr/bin/python3
-import string
-alphabet = 97
-for alphabet in string.ascii_lowercase:
-    print(alphabet, end="")
+for letter in range(97, 123):
+    print("{}".format(chr(letter)), end="")
