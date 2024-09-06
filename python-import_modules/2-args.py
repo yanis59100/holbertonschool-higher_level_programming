@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-import sys
+from sys import argv
 if __name__ == "__main__":
-    args = sys.argv[1:]
-    num_args = len(args)
-    print(f"{num_args} argument{'s' if num_args != 1 else ''}:", end="")
-    if num_args == 0:
-        print(".")
+    if len(argv) == 2:
+        print("{} argument:".format(len(argv) - 1))
+        print("{}: {}".format(1, argv.__getitem__(1)))
+    elif len(argv) > 2:
+        print("{} arguments:".format(len(argv) - 1))
+        for i in range(1, len(argv)):
+            print("{}: {}".format(i, argv.__getitem__(i)))
     else:
-        print()
-    for i, arg in enumerate(args, start=1):
-        print(f"{i}: {arg}")
+        print("{} arguments.".format(len(argv) - 1))
