@@ -8,4 +8,4 @@ def fizzbuzz():
             string = string + "Buzz"
         if num % 5 != 0 and num % 3 != 0:
             string = string + str(num)
-        print(string, end=" ")
+        print(string , end="")
