@@ -9,4 +9,4 @@ if __name__ == "__main__":
     else:
         print()
     for i, arg in enumerate(args, start=1):
-            print(f"{i}: {arg}")
+        print(f"{i}: {arg}")
