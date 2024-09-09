@@ -4,7 +4,7 @@ def replace_in_list(my_list, idx, element):
     for i in my_list:
         if idx < 0:
             return None
-        elif idx > 6:
+        elif idx > len(my_list):
             return None
         else:
             return my_list
