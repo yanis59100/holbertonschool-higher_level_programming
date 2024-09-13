@@ -1,0 +1,69 @@
+The ``text_indentation`` module
+============================
+
+Using ``text_indentation``
+---------------------
+
+Importing function from the module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Testing the function with a long string containing sentences:
+    >>> text_indentation("Lorem ipsum. dolor sit amet: consectetur. adipiscing elit.") # doctest: +ELLIPSIS
+    Lorem ipsum.
+    <BLANKLINE>
+    dolor sit amet:
+    <BLANKLINE>
+    consectetur.
+    <BLANKLINE>
+    adipiscing elit.
+    <BLANKLINE>
+
+
+Testing the function with an empty string:
+    >>> text_indentation("")
+    ...
+
+Testing the function with a string containing only punctuation:
+    >>> text_indentation(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Testing the function with an integer input:
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Testing the function with a list input:
+    >>> text_indentation(["Lorem ipsum", "dolor sit amet"])
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Testing the function with more than one argument passed:
+    >>> text_indentation("Lorem ipsum", "dolor sit amet")# doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() takes 1 positional argument but ...
+
+Testing the function with a float:
+    >>> text_indentation(3.14)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Testing the function with a boolean:
+    >>> text_indentation(True)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+Testing the function with None as input:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
