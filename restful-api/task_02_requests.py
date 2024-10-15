@@ -12,6 +12,7 @@ def fetch_and_print_posts():
         for post in posts:
             print(post["title"])
 
+
 def fetch_and_save_posts():
     url = "https://jsonplaceholder.typicode.com/posts"
     r = requests.get(url)
