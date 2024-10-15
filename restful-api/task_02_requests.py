@@ -18,5 +18,9 @@ def fetch_and_save_posts():
     r = requests.get(url)
     if r.status_code == 200:
         data = r.json()
+        posts = [
+        {"id": 1, "title": "First post", "body": "This is the first post."},
+        {"id": 2, "title": "Second post", "body": "This is the second post."},
+        ]
         with open("posts.csv", "w", newline='') as file:
             file.write(str(data))
