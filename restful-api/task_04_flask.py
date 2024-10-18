@@ -12,26 +12,23 @@ users = {}
 def home():
     return "Welcome to the Flask API"
 
-
 @app.route('/data')
 def jsonfy():
+    global users
     users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
     return jsonify({'users': users})
 
-
 @app.route('/status')
 def status():
-    return 'OK'
-
+    return jsonify({"status": "OK"})
 
 @app.route('/users/<username>')
 def name(username: str):
     user = users.get(username)
-    if user in users:
-        return jsonify(users[user])
+    if user:
+        return jsonify(user)
     else:
         return jsonify({"error": "User not found"}), 404
-
 
 @app.route('/add_user', methods=['POST'])
 def register():
@@ -47,7 +44,6 @@ def register():
     }
 
     return jsonify({"message": "User added", "user": users[username]})
-
 
 if __name__ == "__main__":
     app.run()
