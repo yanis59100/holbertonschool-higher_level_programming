@@ -57,5 +57,25 @@ def jwt_protected():
     current_user = get_jwt_identity()
     return jsonify({"message": "JWT Auth: Access Granted", "user": current_user})
 
+
+@app.route('/admin-only', methods=['GET'])
+@jwt_required()
+def admin():
+    current_user = get_jwt_identity()
+    if current_user['role'] != 'admin':
+        return jsonify({"error": "Admin access required"}), 403
+
+    return jsonify({"message": "Admin Access: Granted"})
+
+
+@app.errorhandler(401)
+def unauthorized(error):
+    return jsonify({"error": "Unauthorized access"}), 401
+
+@app.errorhandler(403)
+def forbidden(error):
+    return jsonify({"error": "Admin access required"}), 403
+
+
 if __name__ == '__main__':
     app.run()
