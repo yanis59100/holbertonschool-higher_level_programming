@@ -1,7 +1,14 @@
 #!/usr/bin/python3
+"""
+class Mylist
+"""
+
+
 class MyList(list):
-    def __init__(self):
-        super().__init__()
+    """MyList class
+    """
 
     def print_sorted(self):
-         print(sorted(self))
+        """print list
+        """
+        print(sorted(self))
